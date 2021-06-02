@@ -4,16 +4,110 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
+        <!-- Header Start -->
+        <ul class="nav justify-content-end" id="navBar">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#intro">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#project">Project</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact" >Contact</a>
+            </li>
+            <!-- <li class="nav-item">
+                <input class="button1 bouncy" type="button" value="Resume" onclick="showImage();"/>
+                <img id="loadingImage" src="images/Resume1.pdf" style="visibility:hidden"/>
+            </li> -->
+        </ul>
+        <!-- Header End -->
+      <div class="intro" id="intro">
+        <div class="intro-child">
+            <img src="images/pic-1.jpeg" />
+        </div>
+        <div class="intro-child">
+            <h1 class="center">Wenkai Tan</h1>
+            <h3 class="center">My name is </h3> 
+            <h2 class="center">Wenkai Tan </h2> 
+            <h3 class="center">I build things for the web.</h3>
+        </div>
+      </div>
+      <hr>
+      <div class="aboutMe" id="about">
+        <h3 class="center">01. About Me</h3>
+        <p>
+            Hello! I’m Wenkai, a software engineer based in New York, NY.
+            Actively looking for 2022 SWE internship opportunities.
+            I enjoy creating things that live on the internet, 
+            whether that be websites, applications, or anything in between. 
+            My goal is to always build products that provide pixel-perfect, 
+            performant experiences. I am currently a junior majoring in computer science 
+            at Lehman College. 
+        </p>
+      </div>
+      <hr>
+      <div class="projects" id="project">
+        <h2 class="center">02. Something that I have built</h2>
+        <div>
+            <h2>Casting Agency</h2>
+            <p><a href="https://github.com/WenkaiTan/FSND/tree/master/projects/capstone/starter" target="_blank">Casting Agency</a> is an app that is responsible for creating movies, adding actors and assigning them to those movies.</p>
+            <p>Tech Stacks used: </p>
+            <p>
+            Flask, 
+            AuthO,
+            PostgreSQL,
+            Flask-SQLAlchemy,
+            Python-Jose
+            </p>            
+
+        </div>
+        <div>
+            <h2>Would you rather game</h2>
+            <p><a href="https://reactnd-project-would-you-rather-starter-three.vercel.app/login" target="_blank">Would you rather</a> is a ReactJS app that allows a user to login, ask and answer different poll questions. It will also show a leaderboard based on the number of questions each user has asked and answered.</p>
+            <p>Tech stacks used: </p>
+            <p>ReactJS, JavaScipt, Redux, HTML, CSS</p>
+        </div>
+        <div>
+            <h2>Fyyer</h2>
+            <p><a href="https://fyyurtan.herokuapp.com/" target="_blank">Fyyur</a> is a musical venue and artist booking site that facilitates the discovery and bookings of shows between local performing artists and venues. This site lets you list new artists and venues, discover them, and list shows with artists as a venue owner.</p>
+            <p>Tech Stacks used: </p>
+            <p>
+                Flask,
+                PostgreSQL,
+                SQLAlchemy ORM,
+                Flask-Migrate
+            </p>
+            <a class="bouncy center" href="https://tanwenkai.com" target="_blank" >more</a>
+        </div>
+
+      </div>
+      <hr>
+      <div class="contact" id="contact">
+          <h2 class="center">03. What is next?</h2>
+          <h2 class="center">Get in Touch</h2>
+          <p>I am looking for any 2021 software developer internship opportunities, <br>
+            my inbox is always open. Whether you have a quesion or just want to say hi, I’ll try my best to get back to you!
+          </p>
+          <div class="center">
+            <a href="https://www.linkedin.com/in/wenkai-tan-91b389143/" target="_blank" class="button1 bouncy">linkedin</a>
+            <a href="https://github.com/WenkaiTan" target="_blank" class="button1 bouncy" style="animation-delay:0.07s">Github</a>
+          </div>
+          
+      </div>
+      <a href="#content" class="bouncy center">To the Top</a>
+
+      <!-- <p>Click <a href="/hello">here</a> to see content created by server code.</p>
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <div id="greeting-container"></div> -->
     </div>
   </body>
 </html>

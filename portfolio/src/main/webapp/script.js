@@ -26,3 +26,6 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+function showImage(){
+    document.getElementById('loadingImage').style.visibility="visible";
+}
