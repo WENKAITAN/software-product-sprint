@@ -29,3 +29,35 @@ function addRandomGreeting() {
 function showImage(){
     document.getElementById('loadingImage').style.visibility="visible";
 }
+
+async function showHelloWorld(){
+    const response = await fetch("/hello")
+    const responseText = await response.text()
+
+    const ele = document.getElementById("container")
+    ele.innerText = responseText;
+
+}
+
+// async function displayJson(){
+//     const responseServer = await fetch("/hello")
+//     const responseJson = await responseServer.json()
+
+//     const listElements = document.getElementById("jsonContainer")
+//     listElements.innerHTML = ""
+
+//     listElements.appendChild(
+//         createListElement("fact: " + responseJson.fact)
+//     )
+//     listElements.appendChild(
+//         createListElement("quote: " + responseJson.quote)
+//     )
+
+// }
+
+function createListElement(text){
+
+    const ele = document.getElementsByTagName("li")
+    ele.innerText = text
+    return ele
+}
