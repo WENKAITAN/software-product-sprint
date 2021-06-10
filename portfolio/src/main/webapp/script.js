@@ -65,9 +65,3 @@ function createListElement(obj){
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-
-async function handleForm(){
-    const response = await fetch("/form-handler")
-    const responseText = response.text()
-    console.log(responseText)
-}
