@@ -39,25 +39,31 @@ async function showHelloWorld(){
 
 }
 
-// async function displayJson(){
-//     const responseServer = await fetch("/hello")
-//     const responseJson = await responseServer.json()
+async function displayJson(){
+    const responseServer = await fetch("/hello")
+    const responseJson = await responseServer.json()
+    console.log(responseJson)
+    const listElements = document.getElementById("jsonContainer")
+    listElements.innerHTML = ""
 
-//     const listElements = document.getElementById("jsonContainer")
-//     listElements.innerHTML = ""
+    randomMessage = responseJson[getRandomInt(2)]
+    listElements.appendChild(
+        createListElement(randomMessage)
+    )
 
-//     listElements.appendChild(
-//         createListElement("fact: " + responseJson.fact)
-//     )
-//     listElements.appendChild(
-//         createListElement("quote: " + responseJson.quote)
-//     )
 
-// }
+}
 
-function createListElement(text){
+function createListElement(obj){
+    let message = ""
+    for(key in obj){
+        message = obj[key]
+    }
 
-    const ele = document.getElementsByTagName("li")
-    ele.innerText = text
+    const ele = document.createElement("li")
+    ele.innerText = message
     return ele
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
