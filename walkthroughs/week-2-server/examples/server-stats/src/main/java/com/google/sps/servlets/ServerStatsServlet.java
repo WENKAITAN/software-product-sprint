@@ -29,15 +29,15 @@ public final class ServerStatsServlet extends HttpServlet {
   private final Date startTime = new Date();
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
     // Calculate server stats
-    Date currentTime = new Date();
-    long maxMemory = Runtime.getRuntime().maxMemory();
-    long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+    final Date currentTime = new Date();
+    final long maxMemory = Runtime.getRuntime().maxMemory();
+    final long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 
     // Convert the server stats to JSON
-    ServerStats serverStats = new ServerStats(startTime, currentTime, maxMemory, usedMemory);
-    String json = convertToJson(serverStats);
+    final ServerStats serverStats = new ServerStats(startTime, currentTime, maxMemory, usedMemory);
+    final String json = convertToJsonUsingGson(serverStats);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
@@ -47,7 +47,7 @@ public final class ServerStatsServlet extends HttpServlet {
   /**
    * Converts a ServerStats instance into a JSON string using manual String concatentation.
    */
-  private String convertToJson(ServerStats serverStats) {
+  private String convertToJson(final ServerStats serverStats) {
     String json = "{";
     json += "\"startTime\": ";
     json += "\"" + serverStats.getStartTime() + "\"";
@@ -68,9 +68,9 @@ public final class ServerStatsServlet extends HttpServlet {
    * Converts a ServerStats instance into a JSON string using the Gson library. Note: We first added
    * the Gson library dependency to pom.xml.
    */
-  private String convertToJsonUsingGson(ServerStats serverStats) {
-    Gson gson = new Gson();
-    String json = gson.toJson(serverStats);
+  private String convertToJsonUsingGson(final ServerStats serverStats) {
+    final Gson gson = new Gson();
+    final String json = gson.toJson(serverStats);
     return json;
   }
 }
