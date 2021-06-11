@@ -28,14 +28,6 @@ function addRandomGreeting() {
 }
 
 
-async function showHelloWorld(){
-    const response = await fetch("/hello")
-    const responseText = await response.text()
-
-    const ele = document.getElementById("container")
-    //ele.innerText = responseText;
-
-}
 
 async function displayJson(){
     const responseServer = await fetch("/hello")

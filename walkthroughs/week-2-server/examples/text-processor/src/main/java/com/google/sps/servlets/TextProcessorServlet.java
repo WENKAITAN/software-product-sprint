@@ -50,6 +50,7 @@ public final class TextProcessorServlet extends HttpServlet {
     response.getWriter().println(Arrays.toString(words));
   }
 
+
   /**
    * @return the request parameter, or the default value if the parameter
    *         was not specified by the client
