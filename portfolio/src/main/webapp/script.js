@@ -26,3 +26,42 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+
+async function showHelloWorld(){
+    const response = await fetch("/hello")
+    const responseText = await response.text()
+
+    const ele = document.getElementById("container")
+    //ele.innerText = responseText;
+
+}
+
+async function displayJson(){
+    const responseServer = await fetch("/hello")
+    const responseJson = await responseServer.json()
+    console.log(responseJson)
+    const listElements = document.getElementById("jsonContainer")
+    listElements.innerHTML = ""
+
+    randomMessage = responseJson[getRandomInt(2)]
+    listElements.appendChild(
+        createListElement(randomMessage)
+    )
+
+
+}
+
+function createListElement(obj){
+    let message = ""
+    for(key in obj){
+        message = obj[key]
+    }
+
+    const ele = document.createElement("li")
+    ele.innerText = message
+    return ele
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
