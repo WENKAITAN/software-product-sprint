@@ -16,7 +16,7 @@ public class HelloWorldServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     fact[0] = " { \"hobby\" : \"I love basketball\" }";
     fact[1] = " { \"quote\" : \"My favorite quote is Being the richest man in the cemetery doesn’t matter to me. Going to bed at night saying we’ve done something wonderful… that’s what matters to me.\" }";
-    // Convert the server stats to JSON
+
     String json = "[" + fact[0] + "," + fact[1] + "]";
     response.setContentType("application/json");
     response.getWriter().println(json);
