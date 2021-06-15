@@ -72,15 +72,16 @@ function createContactMeElement(contactMe){
     ele.className = "contactMe";
 
     const titleEle = document.createElement("span");
-    titleEle.innerText = contactMe.title;
+    titleEle.innerText = "Title:" + contactMe.title;
     
     const firstName = document.createElement("p");
     const lastName = document.createElement("p");
     const subject = document.createElement("p");
 
-    firstName.innerText = contactMe.firstName;
-    lastName.innerText = contactMe.lastName;
-    subject.innerText = contactMe.subject;
+    firstName.innerText = "FirstName: "+ contactMe.firstName;
+    lastName.innerText = "LastName: " + contactMe.lastName;
+    subject.innerText = "Subject: " + contactMe.subject;
+    ele.appendChild(titleEle);
     titleEle.appendChild(firstName);
     titleEle.appendChild(lastName);
     titleEle.appendChild(subject);
