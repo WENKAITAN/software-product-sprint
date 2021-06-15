@@ -32,7 +32,6 @@ function addRandomGreeting() {
 async function displayJson(){
     const responseServer = await fetch("/hello")
     const responseJson = await responseServer.json()
-    console.log(responseJson)
     const listElements = document.getElementById("jsonContainer")
     listElements.innerHTML = ""
 
@@ -59,36 +58,31 @@ function getRandomInt(max) {
 }
 
 function displayContactMe(){
-    fetch("/list-contactMe").then(res => res.json()).then(contactMes => {
-        console.log(contactMes)
-        const contactMeElement = document.getElementById("contactMe-list")
-        contactMes.map(contactMe => {
-            contactMeElement.appendChild(createContactMeElement(contactMe))
+    fetch("/list-contactMe").then(res => res.json()).then((contactMes) => {
+        console.log(contactMes);
+        const contactMeElement = document.getElementById("jsonContainer");
+        contactMes.forEach((contactMe) => {
+            contactMeElement.appendChild(createContactMeElement(contactMe));
         })
     })
 }
 
 function createContactMeElement(contactMe){
-    const ele = document.createElement("li");
+    const ele = document.createElement('li');
     ele.className = "contactMe";
 
     const titleEle = document.createElement("span");
     titleEle.innerText = contactMe.title;
-
-   const firstName = document.createElement("p");
-   const lastName = document.createElement("p");
-   const subject = document.createElement("p");
-   
-   firstName.innerText = contactMe.firstName;
-   lastName.innerText = contactMe.lastName;
-   subject.innerText = contactMe.subject;
-   titleEle.appendChild(firstName);
-   titleEle.appendChild(lastName);
-   titleEle.appendChild(subject);
-
-   return ele;
-
-
     
+    const firstName = document.createElement("p");
+    const lastName = document.createElement("p");
+    const subject = document.createElement("p");
 
+    firstName.innerText = contactMe.firstName;
+    lastName.innerText = contactMe.lastName;
+    subject.innerText = contactMe.subject;
+    titleEle.appendChild(firstName);
+    titleEle.appendChild(lastName);
+    titleEle.appendChild(subject);
+    return ele;
 }

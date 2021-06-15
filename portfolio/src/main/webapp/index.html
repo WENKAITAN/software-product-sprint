@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="displayContactMe()">
     <div id="content">
         <!-- Header Start -->
         <ul class="nav justify-content-end" id="navBar">
@@ -112,7 +112,7 @@
             <a href="https://www.linkedin.com/in/wenkai-tan-91b389143/" target="_blank" class="button1 bouncy">linkedin</a>
             <a href="https://github.com/WenkaiTan" target="_blank" class="button1 bouncy" style="animation-delay:0.07s">Github</a>
           </div>
-          <ul id="contactMe-list"></ul>
+          <!-- <ul id="contactMe-list"></ul> -->
       </div>
       <a href="#content" class="bouncy center">To the Top</a>
 
@@ -120,6 +120,7 @@
       <button onclick="displayJson()"> Click to know more about me!
       </button>
       <ul id="jsonContainer"></ul>
+      <ul id="contactMe-list"></ul>
     </div>
   </body>
 </html>

@@ -32,7 +32,7 @@ public class ContactMeListsServlet extends HttpServlet {
       Entity entity = results.next();
 
       long id = entity.getKey().getId();
-      String firstName = entity.getString("fistName");
+      String firstName = entity.getString("firstName");
       String lastName = entity.getString("lastName");
       String subject = entity.getString("subject");
       String title = entity.getString("title");
