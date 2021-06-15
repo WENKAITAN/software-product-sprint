@@ -5,6 +5,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.FullEntity;
+import com.google.cloud.datastore.KeyFactory;
+
 
 @WebServlet("/form-handler")
 public class FormHandlerServlet extends HttpServlet {
@@ -17,12 +23,21 @@ public class FormHandlerServlet extends HttpServlet {
     String lastName = getParameter(request, "lastname", "");
     String title = getParameter(request, "title", "");
     String subject = getParameter(request, "subject", "");
-    // Print the value so you can see it in the server logs.
+    //Create a datastore
+    long timestamp = System.currentTimeMillis();
+    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+    KeyFactory keyFactory = datastore.newKeyFactory().setKind("contactMe");
+    FullEntity contactMeEntity = 
+        Entity.newBuilder(keyFactory.newKey())
+        .set("firstName", firstName)
+        .set("lastName", lastName)
+        .set("title", title)
+        .set("subject", subject)
+        .set("timestamp", timestamp)
+        .build();
+    datastore.put(contactMeEntity);
 
-    System.out.println("The info: " + firstName + " " + lastName + " " + title + " " + subject);
-    // Write the value to the response so the user can see it.
-    response.getWriter().println("The info: " + firstName + " " + lastName + " " + title + " " + subject);
-    response.sendRedirect("/");
+    response.sendRedirect("/index.html");
   }
     /**
    * @return the request parameter, or the default value if the parameter

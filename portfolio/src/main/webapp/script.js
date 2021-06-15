@@ -57,3 +57,38 @@ function createListElement(obj){
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+
+function displayContactMe(){
+    fetch("/list-contactMe").then(res => res.json()).then(contactMes => {
+        console.log(contactMes)
+        const contactMeElement = document.getElementById("contactMe-list")
+        contactMes.map(contactMe => {
+            contactMeElement.appendChild(createContactMeElement(contactMe))
+        })
+    })
+}
+
+function createContactMeElement(contactMe){
+    const ele = document.createElement("li");
+    ele.className = "contactMe";
+
+    const titleEle = document.createElement("span");
+    titleEle.innerText = contactMe.title;
+
+   const firstName = document.createElement("p");
+   const lastName = document.createElement("p");
+   const subject = document.createElement("p");
+   
+   firstName.innerText = contactMe.firstName;
+   lastName.innerText = contactMe.lastName;
+   subject.innerText = contactMe.subject;
+   titleEle.appendChild(firstName);
+   title.appendChild(lastName);
+   title.appendChild(subject);
+
+   return ele;
+
+
+    
+
+}
