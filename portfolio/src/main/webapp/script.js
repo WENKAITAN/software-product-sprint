@@ -83,8 +83,8 @@ function createContactMeElement(contactMe){
    lastName.innerText = contactMe.lastName;
    subject.innerText = contactMe.subject;
    titleEle.appendChild(firstName);
-   title.appendChild(lastName);
-   title.appendChild(subject);
+   titleEle.appendChild(lastName);
+   titleEle.appendChild(subject);
 
    return ele;
 
